@@ -5,6 +5,9 @@
 #=================================================
 
 myynh_install() {
+	# Patch source to ensure .env is considered in building
+	sed -i "1i import 'dotenv/config';" "$install_dir/svelte.config.js"
+
 	# Install with npm
 	pushd $install_dir
 		ynh_hide_warnings ynh_exec_as_app npm install
