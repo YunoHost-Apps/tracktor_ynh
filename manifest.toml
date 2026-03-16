@@ -7,9 +7,9 @@ name = "Tracktor"
 
 description.en = "Vehicle Tracking Management System"
 
-version = "1.2.1~ynh0"
+version = "1.2.1~ynh1"
 
-maintainers = ["ewilly"]
+maintainers = [""]
 
 [upstream]
 license = "MIT"
@@ -44,7 +44,7 @@ ram.runtime = "250M"
 		url = "https://github.com/javedh-dev/tracktor/archive/refs/tags/1.2.1.tar.gz"
 		sha256 = "5d1777ba24f02f134ec3bfe86e1690540cae8ebf6aad73907550d38c0e41345d"
 
-		autoupdate.strategy = "latest_github_tag"
+		autoupdate.strategy = "latest_github_release"
 
 	[resources.system_user]
 
