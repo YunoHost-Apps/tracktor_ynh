@@ -8,7 +8,6 @@ source /usr/share/yunohost/helpers
 #=================================================
 ynh_script_progression "Setting up source files..."
 ynh_setup_source --dest_dir="$install_dir"
-myynh_install
 
 #=================================================
 # ADD A CONFIGURATION
@@ -17,12 +16,19 @@ ynh_script_progression "Adding app's configuration file..."
 ynh_config_add --template="env" --destination="$install_dir/.env"
 
 #=================================================
+# BUILD APP
+#=================================================
+ynh_script_progression "Building $app..."
+myynh_install
+
+#=================================================
 # SYSTEM CONFIGURATION
 #=================================================
 ynh_script_progression "Adding system configurations related to $app..."
 ynh_config_add_nginx
 ynh_config_add_systemd
 yunohost service add "$app" --description="A short description of the app" --log="/var/log/$app/$app.log"
+ynh_config_add_logrotate
 
 #=================================================
 # SET FILE OWNERSHIP / PERMISSIONS

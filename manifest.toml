@@ -9,7 +9,7 @@ description.en = "Vehicle Tracking Management System"
 
 version = "1.2.1~ynh1"
 
-maintainers = ["ewilly"]
+maintainers = [""]
 
 [upstream]
 license = "MIT"
@@ -17,24 +17,20 @@ demo = "https://tracktor.bytedge.in"
 code = "https://github.com/javedh-dev/tracktor"
 
 [integration]
-yunohost = '>= 12.1.17'
+yunohost = '>= 12.1.39'
 helpers_version = "2.1"
-architectures = "amd64" 
+architectures = ["amd64", "arm64"]
 multi_instance = false
-ldap = "false" 
-sso = "false"
-disk = "50M"
-ram.build = "50M"
-ram.runtime = "50M"
+ldap = false
+sso = false
+disk = "600M"
+ram.build = "4G"
+ram.runtime = "250M"
 
 [install]
 
 	[install.domain]
 	type = "domain"
-
-	[install.path]
-	type = "path"
-	default = "/tracktor"
 
 	[install.init_main_permission]
 	type = "group"
@@ -48,12 +44,23 @@ ram.runtime = "50M"
 		url = "https://github.com/javedh-dev/tracktor/archive/refs/tags/1.2.1.tar.gz"
 		sha256 = "5d1777ba24f02f134ec3bfe86e1690540cae8ebf6aad73907550d38c0e41345d"
 
-		autoupdate.strategy = "latest_github_tag"
+		autoupdate.strategy = "latest_github_release"
+
+	[resources.system_user]
+
+	[resources.install_dir]
+
+	[resources.data_dir]
 
 	[resources.permissions]
 	main.url = "/"
+	api.url = "/api"
+	api.allowed = "visitors"
+	api.auth_header = false
+	api.show_tile = false
+	api.protected = true
 
 	[resources.ports]
 
 	[resources.nodejs]
-	nodejs_version=24
+	version = "24.10.0"

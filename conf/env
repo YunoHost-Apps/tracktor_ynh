@@ -1,31 +1,29 @@
-NODE_ENV=production
+# Environment Configuration
+NODE_ENV="production"
 
-# Set this to the path of the database file. Default - ./tracktor.db
-DB_PATH="__DATA_DIR__/tracktor.db"
-
-# Set this to the path of the uploads directory. Default - ./uploads
-UPLOADS_DIR="__DATA_DIR__/uploads"
-
-# Set this to the path of the logs directory. Default - ./logs
-LOG_DIR="/var/log/__APP__"
-
-# Hostname to bind the server to. Default - 0.0.0.0
+# Server Configuration
+#BASE_URL=""
 HOST="127.0.0.1"
-
-# Port to bind the server to. Default - 3000
 PORT=__PORT__
 
-# Set this to remove upload size limitations. Default - 512 Kb
+# Database Configuration
+DB_PATH="__DATA_DIR__/tracktor.db"
+
+# File Upload Configuration
+UPLOADS_DIR="__DATA_DIR__/uploads"
+
+# Application Features
+TRACKTOR_DEMO_MODE=false
+FORCE_DATA_SEED=false
+TRACKTOR_DISABLE_AUTH=false
+
+# CORS Configuration
+CORS_ORIGINS="__DOMAIN__"
+
+# Logging Configuration
+LOG_REQUESTS=true
+LOG_LEVEL="info"
+LOG_DIR="/var/log/__APP__"
+
+# File upload limit
 BODY_SIZE_LIMIT=Infinity
-
-# Enable request logging. Default - true
-#LOG_REQUESTS=true
-
-# Set the logging level. Options - error, warn, info, verbose, debug, silly. Default - info
-#LOG_LEVEL="info"
-
-# Enable demo mode. Default - false
-#TRACKTOR_DEMO_MODE=false
-
-# Force reseeding of data on every startup. Default - false
-#FORCE_DATA_SEED=false
