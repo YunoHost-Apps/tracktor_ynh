@@ -23,7 +23,7 @@ architectures = ["amd64", "arm64"]
 multi_instance = false
 ldap = false
 sso = false
-disk = "600M"
+disk = "1.5G"
 ram.build = "4G"
 ram.runtime = "250M"
 
@@ -32,9 +32,10 @@ ram.runtime = "250M"
 	[install.domain]
 	type = "domain"
 
-	[install.path]
-	type = "path"
-	default = "/tracktor"
+	# waiting for https://github.com/javedh-dev/tracktor/issues/154
+	# [install.path]
+	# type = "path"
+	# default = "/tracktor"
 
 	[install.init_main_permission]
 	type = "group"
@@ -67,4 +68,4 @@ ram.runtime = "250M"
 	[resources.ports]
 
 	[resources.nodejs]
-	version = "24.10.0"
+	version = "24.14.1"

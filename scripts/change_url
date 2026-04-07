@@ -22,7 +22,7 @@ if [ "$new_path" != "$old_path" ]
 then
 	if [ "$new_path" != "/" ]
 	then
-		ynh_replace_regex --match="#BASE_URL" --replace="BASE_URL=\"/$new_path\"" --file="$install_dir/.env"
+		ynh_replace_regex --match="#BASE_URL" --replace="BASE_URL=\"$new_path\"" --file="$install_dir/.env"
 	else
 		ynh_replace --match="BASE_URL" --replace="#BASE_URL" --file="$install_dir/.env"
 	fi

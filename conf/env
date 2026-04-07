@@ -2,7 +2,7 @@
 NODE_ENV="production"
 HOST="127.0.0.1"
 PORT=__PORT__
-#BASE_URL="/__PATH__"
+#BASE_URL="__PATH__"
 
 # Database
 DB_PATH="__DATA_DIR__/tracktor.db"
