@@ -9,7 +9,7 @@ description.en = "Vehicle Tracking Management System"
 
 version = "1.4.0~ynh1"
 
-maintainers = [""]
+maintainers = ["ewilly"]
 
 [upstream]
 license = "MIT"
@@ -31,6 +31,10 @@ ram.runtime = "250M"
 
 	[install.domain]
 	type = "domain"
+
+	[install.path]
+	type = "path"
+	default = "/tracktor"
 
 	[install.init_main_permission]
 	type = "group"
