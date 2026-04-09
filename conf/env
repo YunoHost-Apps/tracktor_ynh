@@ -1,29 +1,25 @@
-# Environment Configuration
+# Application Settings
 NODE_ENV="production"
-
-# Server Configuration
-#BASE_URL=""
 HOST="127.0.0.1"
 PORT=__PORT__
+#BASE_URL="__PATH__"
 
-# Database Configuration
+# Database
 DB_PATH="__DATA_DIR__/tracktor.db"
 
-# File Upload Configuration
+# File Storage
 UPLOADS_DIR="__DATA_DIR__/uploads"
 
-# Application Features
-TRACKTOR_DEMO_MODE=false
-FORCE_DATA_SEED=false
+# Security
+CORS_ORIGINS="__DOMAIN__"
 TRACKTOR_DISABLE_AUTH=false
 
-# CORS Configuration
-CORS_ORIGINS="__DOMAIN__"
+# Demo Mode
+TRACKTOR_DEMO_MODE=false
+FORCE_DATA_SEED=false
 
-# Logging Configuration
+# Logging
 LOG_REQUESTS=true
 LOG_LEVEL="info"
 LOG_DIR="/var/log/__APP__"
-
-# File upload limit
 BODY_SIZE_LIMIT=Infinity

@@ -8,15 +8,15 @@ myynh_install() {
 	# Patch source to ensure .env is considered in building
 	sed -i "1i import 'dotenv/config';" "$install_dir/svelte.config.js"
 
+	# Create needed directories
+	[[ -d "/var/log/$app" ]] || mkdir -p "/var/log/$app"
+	[[ -d "$data_dir/uploads" ]] || mkdir -p "$data_dir/uploads"
+
 	# Install with npm
 	pushd $install_dir
 		ynh_hide_warnings ynh_exec_as_app npm install
 		ynh_hide_warnings ynh_exec_as_app npm run build
 	popd
-
-	# Create needed directories
-	mkdir -p "/var/log/$app"
-	mkdir -p "$data_dir/uploads"
 }
 
 # Set permissions

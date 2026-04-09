@@ -14,6 +14,10 @@ ynh_setup_source --dest_dir="$install_dir"
 #=================================================
 ynh_script_progression "Adding app's configuration file..."
 ynh_config_add --template="env" --destination="$install_dir/.env"
+if [ "$path" != "/" ]
+then
+	ynh_replace --match="#BASE_URL" --replace="BASE_URL" --file="$install_dir/.env"
+fi
 
 #=================================================
 # BUILD APP

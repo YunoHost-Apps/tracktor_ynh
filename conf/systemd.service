@@ -14,6 +14,7 @@ StandardOutput=append:/var/log/__APP__/__APP__.log
 StandardError=inherit
 Restart=on-failure
 RestartSec=10
+KillSignal=SIGINT
 
 # Sandboxing options to harden security
 # Depending on specificities of your service/app, you may need to tweak these
