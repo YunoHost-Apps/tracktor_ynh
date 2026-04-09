@@ -17,7 +17,17 @@ ynh_systemctl --service="$app" --action="stop"
 # DOWNLOAD, CHECK AND UNPACK SOURCE
 #=================================================
 ynh_script_progression "Upgrading source files..."
-ynh_setup_source --dest_dir="$install_dir" --full_replace --keep=".env"
+ynh_setup_source --dest_dir="$install_dir" --full_replace
+
+#=================================================
+# UPDATE A CONFIG FILE
+#=================================================
+ynh_script_progression "Updating $app's configuration files..."
+ynh_config_add --template="env" --destination="$install_dir/.env"
+if [ "$path" != "/" ]
+then
+	ynh_replace --match="#BASE_URL" --replace="BASE_URL" --file="$install_dir/.env"
+fi
 
 #=================================================
 # BUILD APP

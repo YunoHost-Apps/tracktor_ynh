@@ -7,9 +7,9 @@ name = "Tracktor"
 
 description.en = "Vehicle Tracking Management System"
 
-version = "1.2.1~ynh1"
+version = "1.4.0~ynh1"
 
-maintainers = [""]
+maintainers = ["ewilly"]
 
 [upstream]
 license = "MIT"
@@ -23,7 +23,7 @@ architectures = ["amd64", "arm64"]
 multi_instance = false
 ldap = false
 sso = false
-disk = "600M"
+disk = "1.5G"
 ram.build = "4G"
 ram.runtime = "250M"
 
@@ -31,6 +31,11 @@ ram.runtime = "250M"
 
 	[install.domain]
 	type = "domain"
+
+	# waiting for https://github.com/javedh-dev/tracktor/issues/154
+	# [install.path]
+	# type = "path"
+	# default = "/tracktor"
 
 	[install.init_main_permission]
 	type = "group"
@@ -41,8 +46,8 @@ ram.runtime = "250M"
 	[resources.sources]
 
 		[resources.sources.main]
-		url = "https://github.com/javedh-dev/tracktor/archive/refs/tags/1.2.1.tar.gz"
-		sha256 = "5d1777ba24f02f134ec3bfe86e1690540cae8ebf6aad73907550d38c0e41345d"
+		url = "https://github.com/javedh-dev/tracktor/archive/refs/tags/1.4.0.tar.gz"
+		sha256 = "2d5b1ccedab425236b7ddaba2faeba5ccc64b49cd3438091978244a45e3619b7"
 
 		autoupdate.strategy = "latest_github_release"
 
@@ -63,4 +68,4 @@ ram.runtime = "250M"
 	[resources.ports]
 
 	[resources.nodejs]
-	version = "24.10.0"
+	version = "24.14.1"
